@@ -5,10 +5,12 @@
  */
 package futbol;
 
+import futbol.accesoADatos.Conexion;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import pojos.Equipos;
+import vistas.FutbolVista;
 
 /**
  *
@@ -22,11 +24,9 @@ public class Futbol {
     public static void main(String[] args) {
        
        
-            Session s =futbol.accesoADatos.Conexion.getSessionFactory().openSession();
-            Query query = s.createQuery("select e from Equipos e where nombre='River'");
-           
-           Equipos e=(Equipos)query.uniqueResult();
-           System.out.println(e);
+          Conexion.getSessionFactory();
+          FutbolVista ingreso= new FutbolVista();
+         ingreso.main(args);
     }
     
 }
