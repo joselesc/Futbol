@@ -20,8 +20,8 @@ public class CargarEquipoVista extends javax.swing.JInternalFrame {
      */
     public CargarEquipoVista() {
         initComponents();
-         jBActualizar.setEnabled(false);
-         jBBorrar.setEnabled(false);
+        jBActualizar.setEnabled(false);
+        jBBorrar.setEnabled(false);
     }
 
     /**
@@ -216,36 +216,35 @@ public class CargarEquipoVista extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
-      
-        
-         EquipoData ed = new EquipoData();
-         Equipos eq=ed.buscarEquipo(jTNombre.getText());
-         if(eq!=null){
-           jBAgregar.setEnabled(false);
-           jBActualizar.setEnabled(true);
+
+        EquipoData ed = new EquipoData();
+        Equipos eq = ed.buscarEquipo(jTNombre.getText());
+        if (eq != null) {
+            jBAgregar.setEnabled(false);
+            jBActualizar.setEnabled(true);
             jBBorrar.setEnabled(true);
-        jTNombre.setText(eq.getNombre());
-        jTTitulares.setText(eq.getTitulares()+"");
-        jTSuplentes.setText(eq.getTitulares()+"");
-        jTDT.setText(eq.getDt());
-        jTPuntos.setText(eq.getPuntos()+"");
-        jTPartidosJugados.setText(eq.getPartidosJugados()+"");
-        jTGanados.setText(eq.getGanados()+"");
-        jTEmpatados.setText(eq.getEmpatados()+"");
-        jTPerdidos.setText(eq.getPerdidos()+"");
-         jTNombre.setEditable(false);
-        }else{
-            JOptionPane.showMessageDialog(this, "No hay equipo con ese nombre" );  
-         }
-        
-        
+            jTNombre.setText(eq.getNombre());
+            jTTitulares.setText(eq.getTitulares() + "");
+            jTSuplentes.setText(eq.getTitulares() + "");
+            jTDT.setText(eq.getDt());
+            jTPuntos.setText(eq.getPuntos() + "");
+            jTPartidosJugados.setText(eq.getPartidosJugados() + "");
+            jTGanados.setText(eq.getGanados() + "");
+            jTEmpatados.setText(eq.getEmpatados() + "");
+            jTPerdidos.setText(eq.getPerdidos() + "");
+            jTNombre.setEditable(false);
+        } else {
+            JOptionPane.showMessageDialog(this, "No hay equipo con ese nombre");
+        }
+
+
     }//GEN-LAST:event_jBBuscarActionPerformed
 
     private void jBAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarActionPerformed
-     
-         try {
+
+        try {
             if (jTNombre.getText().isEmpty() || jTTitulares.getText().isEmpty() || jTSuplentes.getText().isEmpty() || jTDT.getText().isEmpty()
-                    || jTPuntos.getText().isEmpty()||jTPartidosJugados.getText().isEmpty() ||jTGanados.getText().isEmpty()||jTEmpatados.getText().isEmpty()||jTPerdidos.getText().isEmpty()){
+                    || jTPuntos.getText().isEmpty() || jTPartidosJugados.getText().isEmpty() || jTGanados.getText().isEmpty() || jTEmpatados.getText().isEmpty() || jTPerdidos.getText().isEmpty()) {
 
                 JOptionPane.showMessageDialog(this, "Error: Uno o más campos están vacíos");
 
@@ -254,15 +253,14 @@ public class CargarEquipoVista extends javax.swing.JInternalFrame {
                 String nombre = jTNombre.getText();
                 int titulares = Integer.parseInt(jTTitulares.getText());
                 int suplentes = Integer.parseInt(jTSuplentes.getText());
-                String dt =  jTDT.getText();
-               int puntos = Integer.parseInt(jTPuntos.getText());
-               int partjug = Integer.parseInt(jTPartidosJugados.getText());
-               int ganados = Integer.parseInt(jTGanados.getText());
-               int empatados = Integer.parseInt(jTEmpatados.getText());
-               int perdidos = Integer.parseInt(jTPerdidos.getText());
-               pojos.Equipos eq1=new pojos.Equipos(nombre, titulares, suplentes, dt, puntos, partjug, ganados, empatados, perdidos);
-    
-          
+                String dt = jTDT.getText();
+                int puntos = Integer.parseInt(jTPuntos.getText());
+                int partjug = Integer.parseInt(jTPartidosJugados.getText());
+                int ganados = Integer.parseInt(jTGanados.getText());
+                int empatados = Integer.parseInt(jTEmpatados.getText());
+                int perdidos = Integer.parseInt(jTPerdidos.getText());
+                pojos.Equipos eq1 = new pojos.Equipos(nombre, titulares, suplentes, dt, puntos, partjug, ganados, empatados, perdidos);
+
                 EquipoData ed = new EquipoData();
                 ed.crearEquipo(eq1);
                 limpiar();
@@ -271,14 +269,14 @@ public class CargarEquipoVista extends javax.swing.JInternalFrame {
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "Error en campo numerico -" + ex.getMessage());
         }
-        
+
     }//GEN-LAST:event_jBAgregarActionPerformed
 
     private void jBActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBActualizarActionPerformed
-        
+
         try {
             if (jTNombre.getText().isEmpty() || jTTitulares.getText().isEmpty() || jTSuplentes.getText().isEmpty() || jTDT.getText().isEmpty()
-                    || jTPuntos.getText().isEmpty()||jTPartidosJugados.getText().isEmpty() ||jTGanados.getText().isEmpty()||jTEmpatados.getText().isEmpty()||jTPerdidos.getText().isEmpty()){
+                    || jTPuntos.getText().isEmpty() || jTPartidosJugados.getText().isEmpty() || jTGanados.getText().isEmpty() || jTEmpatados.getText().isEmpty() || jTPerdidos.getText().isEmpty()) {
 
                 JOptionPane.showMessageDialog(this, "Error: Uno o más campos están vacíos");
 
@@ -287,15 +285,14 @@ public class CargarEquipoVista extends javax.swing.JInternalFrame {
                 String nombre = jTNombre.getText();
                 int titulares = Integer.parseInt(jTTitulares.getText());
                 int suplentes = Integer.parseInt(jTSuplentes.getText());
-                String dt =  jTDT.getText();
-               int puntos = Integer.parseInt(jTPuntos.getText());
-               int partjug = Integer.parseInt(jTPartidosJugados.getText());
-               int ganados = Integer.parseInt(jTGanados.getText());
-               int empatados = Integer.parseInt(jTEmpatados.getText());
-               int perdidos = Integer.parseInt(jTPerdidos.getText());
-               pojos.Equipos eq1=new pojos.Equipos(nombre, titulares, suplentes, dt, puntos, partjug, ganados, empatados, perdidos);
-    
-          
+                String dt = jTDT.getText();
+                int puntos = Integer.parseInt(jTPuntos.getText());
+                int partjug = Integer.parseInt(jTPartidosJugados.getText());
+                int ganados = Integer.parseInt(jTGanados.getText());
+                int empatados = Integer.parseInt(jTEmpatados.getText());
+                int perdidos = Integer.parseInt(jTPerdidos.getText());
+                pojos.Equipos eq1 = new pojos.Equipos(nombre, titulares, suplentes, dt, puntos, partjug, ganados, empatados, perdidos);
+
                 EquipoData ed = new EquipoData();
                 ed.modificarEquipo(eq1);
                 limpiar();
@@ -307,36 +304,34 @@ public class CargarEquipoVista extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBActualizarActionPerformed
 
     private void jBBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBorrarActionPerformed
-        
-        try {
-           
 
-                String nombre = jTNombre.getText();
-                int titulares = Integer.parseInt(jTTitulares.getText());
-                int suplentes = Integer.parseInt(jTSuplentes.getText());
-                String dt =  jTDT.getText();
-               int puntos = Integer.parseInt(jTPuntos.getText());
-               int partjug = Integer.parseInt(jTPartidosJugados.getText());
-               int ganados = Integer.parseInt(jTGanados.getText());
-               int empatados = Integer.parseInt(jTEmpatados.getText());
-               int perdidos = Integer.parseInt(jTPerdidos.getText());
-               pojos.Equipos eq1=new pojos.Equipos(nombre, titulares, suplentes, dt, puntos, partjug, ganados, empatados, perdidos);
-    
-          
-                EquipoData ed = new EquipoData();
-                ed.borrarEquipo(eq1);
-                limpiar();
-                this.dispose();
-            
+        try {
+
+            String nombre = jTNombre.getText();
+            int titulares = Integer.parseInt(jTTitulares.getText());
+            int suplentes = Integer.parseInt(jTSuplentes.getText());
+            String dt = jTDT.getText();
+            int puntos = Integer.parseInt(jTPuntos.getText());
+            int partjug = Integer.parseInt(jTPartidosJugados.getText());
+            int ganados = Integer.parseInt(jTGanados.getText());
+            int empatados = Integer.parseInt(jTEmpatados.getText());
+            int perdidos = Integer.parseInt(jTPerdidos.getText());
+            pojos.Equipos eq1 = new pojos.Equipos(nombre, titulares, suplentes, dt, puntos, partjug, ganados, empatados, perdidos);
+
+            EquipoData ed = new EquipoData();
+            ed.borrarEquipo(eq1);
+            limpiar();
+            this.dispose();
+
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "Error en campo numerico -" + ex.getMessage());
         }
-                                               
-        
+
+
     }//GEN-LAST:event_jBBorrarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    
+
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -368,18 +363,17 @@ public class CargarEquipoVista extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTTitulares;
     // End of variables declaration//GEN-END:variables
 
- private void limpiar() {
-       
+    private void limpiar() {
+
         jTNombre.setText("");
         jTTitulares.setText("");
         jTSuplentes.setText("");
         jTDT.setText("");
-       jTPuntos.setText("");
+        jTPuntos.setText("");
         jTPartidosJugados.setText("");
         jTGanados.setText("");
         jTEmpatados.setText("");
-       jTPerdidos.setText("");
-        
-      
+        jTPerdidos.setText("");
+
     }
 }
